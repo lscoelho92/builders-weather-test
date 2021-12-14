@@ -5,13 +5,20 @@ import "../styles/button.scss";
 function Button({ children, type, onClick, loading }) {
   return (
     <>
-      {loading ? (
-        <div className="loading"></div>
-      ) : (
-        <button className="woa-button" onClick={onClick} type={type}>
-          {children}
-        </button>
-      )}
+      <button
+        className={"woa-button " + (loading && "disabled")}
+        onClick={onClick}
+        type={type}
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <i className="loading"></i> Loading ...
+          </>
+        ) : (
+          <>{children}</>
+        )}
+      </button>
     </>
   );
 }

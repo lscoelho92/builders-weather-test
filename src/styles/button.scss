@@ -24,22 +24,44 @@
     transform: scale(1.05);
   }
 
+  &.disabled {
+    position: relative;
+    padding-left: 50px;
+    color: #a6a6a6;
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: initial;
+    }
+
+    .loading {
+      position: absolute;
+      width: 0.5em;
+      height: 1em;
+      left: 20px;
+      top: 50%;
+      margin-top: -12px;
+      border: 3px solid transparent;
+      border-top-color: #a6a6a6;
+      border-bottom-color: #a6a6a6;
+      border-radius: 50%;
+      animation: spin-stretch 2s ease infinite;
+
+      @media only screen and (max-width: 525px) {
+        left: 23px;
+        margin-top: -10px;
+      }
+    }
+  }
+
 }
 
-.loading {
-  width: 2.5em;
-  height: 3em;
-  margin: 0 auto;
-  border: 3px solid transparent;
-  border-top-color: $primary-color;
-  border-bottom-color: $primary-color;
-  border-radius: 50%;
-  animation: spin-stretch 2s ease infinite;
-}
+
 
 @keyframes spin-stretch {
   50% {
-    transform: rotate(360deg) scale(0.4, 0.33);
+    transform: rotate(360deg) scale(0.3, 0.23);
     border-width: 8px;
   }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
 import WeatherCard from "../components/WeatherCard";
 
@@ -12,24 +12,15 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleClick = async () => {
-    setLoading(true);
-    try {
-      const apiData = await getUserCoords();
-      setWeather({ ...apiData });
-      setShowResult(true);
-    } catch {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const errorMessage =
+    "Unfortunately we were unable to find your location data. Make sure we have access to your browser location and if the error persists,try again later.";
 
-  const refreshClick = async () => {
+  const handleClick = async (refresh) => {
     setLoading(true);
     try {
       const apiData = await getUserCoords();
       setWeather({ ...apiData });
+      !refresh && setShowResult(true);
     } catch {
       setError(true);
     } finally {
@@ -43,30 +34,18 @@ function Home() {
         <div className="initial-content">
           <h1 className="text-primary">WAO - What About Outside?</h1>
           <h2 className="subTitle">Discover climate data for your region.</h2>
-          <Button onClick={() => handleClick()} loading={loading}>
+          <Button onClick={() => handleClick(false)} loading={loading}>
             Let's Start!
           </Button>
-          {error && (
-            <p className="error-text">
-              Unfortunately we were unable to find your location data. Make sure
-              we have access to your browser location and if the error persists,
-              try again later.
-            </p>
-          )}
+          {error && <p className="error-text">{errorMessage}</p>}
         </div>
       ) : (
         <div className="result-content">
           <WeatherCard data={weather} />
-          <Button onClick={() => refreshClick()} loading={loading}>
+          <Button onClick={() => handleClick(true)} loading={loading}>
             Refresh data
           </Button>
-          {error && (
-            <p className="error-text">
-              Unfortunately we were unable to find your location data. Make sure
-              we have access to your browser location and if the error persists,
-              try again later.
-            </p>
-          )}
+          {error && <p className="error-text">{errorMessage}</p>}
         </div>
       )}
     </div>
