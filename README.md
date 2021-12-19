@@ -45,7 +45,7 @@ When clicking on the splash screen button, it triggers the getUserCoords functio
    ![Allow to know the user location](src/assets/images/howtouse-02.png?raw=true "How to Use 02")
 
 4.The result screen will be displayed informing the date, current temperature, minimum and maximum temperature.
-![Result Page](src/assets/images/howtouse-02.png?raw=true "How to Use 03")
+![Result Page](src/assets/images/howtouse-03.png?raw=true "How to Use 03")
 
 5. If you want to update the information received, just click on the "Refresh data" button.
 
