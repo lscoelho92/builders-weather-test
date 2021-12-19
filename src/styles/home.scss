@@ -57,6 +57,20 @@
 
   .error-text {
     color: red;
-    margin-top: 20px;
+    margin: 20px auto;
+
+    &.refresh-data {
+      position: absolute;
+      display: block;
+      top: 5%;
+      max-width: 300px;
+      left: 50%;
+      margin-left: -150px;
+      padding: 5px;
+      color: white;
+      text-align: center;
+      background-color: red;
+      border-radius: 10px;
+    }
   }
 }

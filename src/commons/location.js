@@ -32,3 +32,18 @@ export const getUserCoords = async () => {
     );
   });
 };
+
+export const testMock = async () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(
+        "https://api.openweathermap.org/data/2.5/weather?lat=51.5135872&lon=7.4652981&units=metric&appid=f5fc0d4cb4a03911e34a54060a16565d"
+      )
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};

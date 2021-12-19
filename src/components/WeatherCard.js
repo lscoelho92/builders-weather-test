@@ -4,10 +4,8 @@ import { dateBuilder } from "../commons/utils";
 import "../styles/weather-card.scss";
 
 function WeatherCard({ data }) {
-  // console.log(data);
-
   return (
-    <div className="weather-card">
+    <div className="weather-card" data-testid="weatherCard">
       <div className="location-box">
         <p className="location">
           {data.name}, {data.sys.country}

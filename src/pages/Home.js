@@ -21,6 +21,7 @@ function Home() {
       const apiData = await getUserCoords();
       setWeather({ ...apiData });
       !refresh && setShowResult(true);
+      setError(false);
     } catch {
       setError(true);
     } finally {
@@ -37,7 +38,11 @@ function Home() {
           <Button onClick={() => handleClick(false)} loading={loading}>
             Let's Start!
           </Button>
-          {error && <p className="error-text">{errorMessage}</p>}
+          {/* {error && (
+            <p className="error-text" data-testid="error-message">
+              {errorMessage}
+            </p>
+          )} */}
         </div>
       ) : (
         <div className="result-content">
@@ -45,8 +50,21 @@ function Home() {
           <Button onClick={() => handleClick(true)} loading={loading}>
             Refresh data
           </Button>
-          {error && <p className="error-text">{errorMessage}</p>}
+          {/* {error && (
+            <p className="error-text" data-testid="error-message">
+              {errorMessage}
+            </p>
+          )} */}
         </div>
+      )}
+
+      {error && (
+        <p
+          className={"error-text " + (showResult && "refresh-data")}
+          data-testid="error-message"
+        >
+          {errorMessage}
+        </p>
       )}
     </div>
   );

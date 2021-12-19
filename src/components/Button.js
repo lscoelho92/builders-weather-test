@@ -7,13 +7,15 @@ function Button({ children, type, onClick, loading }) {
     <>
       <button
         className={"woa-button " + (loading && "disabled")}
+        data-testid="button"
         onClick={onClick}
         type={type}
         disabled={loading}
       >
         {loading ? (
           <>
-            <i className="loading"></i> Loading ...
+            <i className="loading" data-testid="loading-animation"></i> Loading
+            ...
           </>
         ) : (
           <>{children}</>
