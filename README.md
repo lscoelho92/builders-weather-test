@@ -51,13 +51,3 @@ When clicking on the splash screen button, it triggers the getUserCoords functio
 
 **Note 1:**
 The API only updates information every 15 minutes, it's no use updating all the time.
-
-### Comments
-
-First, I would like to thank you for the opportunity to be participating in the process.
-
-It was great to know the API and be able to see the result showing the correct temperature when finishing the test.
-
-It would be interesting to establish a defined layout for the user as it makes it easier to put into practice the knowledge focused more on the part of web development.
-
-Thanks.
